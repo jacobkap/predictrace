@@ -14,7 +14,7 @@ status](https://codecov.io/gh/jacobkap/race/branch/master/graph/badge.svg)](http
 
 ## Overview
 
-The goal of race is to predict the race of a surname. This package uses U.S. Census data which says how many people of each race has a certain surname. From this we can predict which race is mostly likely to have that surname.
+The goal of race is to predict the race of a surname. This package uses U.S. Census data which says how many people of each race has a certain surname. From this we can predict which race is mostly likely to have that surname. The possible races are American Indian, Asian, Black, Hispanic, White, or two or more races. 
 
 ## Installation
 
@@ -30,6 +30,8 @@ devtools::install_github("jacobkap/race")
 
 ## Usage
 
+The only required parameter is `name` which is the surname you want to find the race of. Please note that this parameter only accepts surnames, including both first and last name will result in not finding a match in the Census data. 
+
 ```{r}
 library(race)
 ```
@@ -38,6 +40,14 @@ library(race)
 ```{r}
 race("Washington")
 ```
+
+This function accepts a single string or a vector of strings.
+
+```{r}
+race(c("Washington", "Franklin", "Lincoln"))
+```
+
+
 
 If you only want the most likely race and not the individual probabilities of each race, set the parameter `probability` to FALSE.
 

@@ -5,7 +5,22 @@ lincoln       <- race("Lincoln")
 rlincoln      <- race("RLincoln")
 
 test_that("race works", {
+
+  expect_named(smith, c("name",
+                        "match_name",
+                        "likely_race",
+                        "probability_american_indian",
+                        "probability_asian",
+                        "probability_black",
+                        "probability_hispanic",
+                        "probability_white",
+                        "probability_2races"))
+  expect_named(race("smith", probability = FALSE), c("name",
+                                                     "match_name",
+                                                     "likely_race"))
+
   expect_equal(smith$likely_race, "white")
+  expect_equal(race("smith", probability = FALSE)$likely_race, "white")
   expect_equal(smith$probability_american_indian, 0.0089)
   expect_equal(smith$probability_asian, 0.005)
   expect_equal(smith$probability_black, 0.2311)
@@ -14,15 +29,24 @@ test_that("race works", {
   expect_equal(smith$probability_2races, 0.0219)
 
   expect_equal(smith_lincoln$likely_race, c("white", "white"))
-  expect_equal(smith_lincoln$probability_american_indian, c(0.0089, 0.0368))
-  expect_equal(smith_lincoln$probability_asian, c(0.005, 0.0135))
-  expect_equal(smith_lincoln$probability_black, c(0.2311, 0.1471))
-  expect_equal(smith_lincoln$probability_hispanic, c(0.024, 0.0251))
-  expect_equal(smith_lincoln$probability_white, c(0.709, 0.749))
-  expect_equal(smith_lincoln$probability_2races, c(0.0219, 0.0285))
+  expect_equal(race(c("smith", "Lincoln"), probability = FALSE)$likely_race,
+               c("white", "white"))
+  expect_equal(smith_lincoln$probability_american_indian,
+               c(0.0089, 0.0368))
+  expect_equal(smith_lincoln$probability_asian,
+               c(0.005, 0.0135))
+  expect_equal(smith_lincoln$probability_black,
+               c(0.2311, 0.1471))
+  expect_equal(smith_lincoln$probability_hispanic,
+               c(0.024, 0.0251))
+  expect_equal(smith_lincoln$probability_white,
+               c(0.709, 0.749))
+  expect_equal(smith_lincoln$probability_2races,
+               c(0.0219, 0.0285))
 
 
   expect_true(is.na(ben_smith$likely_race))
+  expect_true(is.na(race("Ben smith", probability = FALSE)$likely_race))
   expect_true(is.na(ben_smith$probability_american_indian))
   expect_true(is.na(ben_smith$probability_asian))
   expect_true(is.na(ben_smith$probability_black))
@@ -31,7 +55,9 @@ test_that("race works", {
   expect_true(is.na(ben_smith$probability_2races))
 
 
+
   expect_equal(lincoln$likely_race, "white")
+  expect_equal(race("Lincoln", probability = FALSE)$likely_race, "white")
   expect_equal(lincoln$probability_american_indian, 0.0368)
   expect_equal(lincoln$probability_asian, 0.0135)
   expect_equal(lincoln$probability_black, 0.1471)
@@ -40,6 +66,7 @@ test_that("race works", {
   expect_equal(lincoln$probability_2races, 0.0285)
 
   expect_true(is.na(rlincoln$likely_race))
+  expect_true(is.na(race("RLincoln", probability = FALSE)$likely_race))
   expect_true(is.na(rlincoln$probability_american_indian))
   expect_true(is.na(rlincoln$probability_asian))
   expect_true(is.na(rlincoln$probability_black))

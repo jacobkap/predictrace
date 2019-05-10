@@ -1,0 +1,43 @@
+---
+title: "Predict the race of a surname"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Predict-race-of-surname}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(race)
+```
+
+## Usage
+
+The only required parameter is `name` which is the surname you want to find the race of. Please note that this parameter only accepts surnames, including both first and last name will result in not finding a match in the Census data. 
+
+
+```{r}
+race("Washington")
+```
+
+This function accepts a single string or a vector of strings.
+
+```{r}
+race(c("Washington", "Franklin", "Lincoln"))
+```
+
+
+
+If you only want the most likely race and not the individual probabilities of each race, set the parameter `probability` to FALSE.
+
+```{r}
+race("Washington", probability = FALSE)
+```
+

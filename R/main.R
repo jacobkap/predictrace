@@ -8,9 +8,12 @@
 #' the match-name from the Census data, and the most likely race.
 #'
 #' @return
-#' A data.frame with three columns: The first column has the name as inputted,
-#' the second column has the cleaned up name (no spaces or punctuation,
-#' first letter is capitalized), the final column tells the race of the name
+#' A data.frame with three or nine columns: The first column has the name as inputted,
+#' the second column has the cleaned up name (no spaces or punctuation, all
+#' lowercase), the third column tells the likely race of the surname. If the
+#' parameter probability is false, these three columns are all that is returned.
+#' Otherwise, columns 4-9 tell the specific probability that the surname
+#' is each race.
 #' @export
 #'
 #' @examples
