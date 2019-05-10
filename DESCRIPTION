@@ -1,8 +1,23 @@
-Package: nameSexRace
-Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
-LazyData: TRUE
+Package: race
+Title: Predict the Race of a Given Surname Using Census Data
+Version: 1.0.0
+Authors@R: 
+    person(given = "Jacob",
+           family = "Kaplan",
+           role = c("aut", "cre"),
+           email = "jkkaplan6@gmail.com",
+           comment = c(ORCID = "0000-0002-0601-0387"))
+Description: Predicts the most common race of a surname based on U.S. Census data.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 2.1.0)
+VignetteBuilder: knitr
+Imports: 
+    dplyr,
+    tidyr,
+    here
+RoxygenNote: 6.1.1
