@@ -1,4 +1,4 @@
 library(testthat)
-library(nameSexRace)
+library(race)
 
-test_check("nameSexRace")
+test_check("race")

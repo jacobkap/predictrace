@@ -78,21 +78,6 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="../articles/Find-the-gender-of-a-first-name.html">Find-the-gender-of-a-first-name</a>
-    </li>
-    <li>
-      <a href="../articles/Find-the-race-of-a-surname.html">Find-the-race-of-a-surname</a>
-    </li>
-  </ul>
-</li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -132,6 +117,12 @@
       <th>name</th>
       <td><p>String or vector of strings of surname that you want to know the race of.</p></td>
     </tr>
+    <tr>
+      <th>probability</th>
+      <td><p>If TRUE (default) will provide columns for each race with the probability
+that the surname is of that race. If FALSE, will only return the name,
+the match-name from the Census data, and the most likely race.</p></td>
+    </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -142,12 +133,29 @@ first letter is capitalized), the final column tells the race of the name</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>race</span>(<span class='st'>"franklin"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in .f(.x[[i]], ...): object 'likely_race' not found</span></div><div class='input'>
-<span class='fu'>race</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"franklin"</span>, <span class='st'>"Washington"</span>, <span class='st'>"Jefferson"</span>, <span class='st'>"Sotomayor"</span>, <span class='st'>"Liu"</span>))</div><div class='output co'>#&gt; <span class='error'>Error in .f(.x[[i]], ...): object 'likely_race' not found</span></div><div class='input'>
-<span class='no'>example</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/data.frame'>data.frame</a></span>(<span class='kw'>surnames</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"frank'.lin"</span>,
-                                   <span class='st'>"washing-ton"</span>, <span class='st'>"JEFFERSON"</span>, <span class='st'>"A dams"</span>,
-                                   <span class='st'>"Liu"</span>, <span class='st'>"Sotomayor"</span>))
-<span class='fu'>find_race</span>(<span class='no'>example</span>$<span class='no'>surnames</span>)</div><div class='output co'>#&gt; <span class='error'>Error in find_race(example$surnames): could not find function "find_race"</span></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>race</span>(<span class='st'>"franklin"</span>)</div><div class='output co'>#&gt;       name match_name likely_race probability_american_indian probability_asian
+#&gt; 1 franklin   franklin       white                      0.0083            0.0054
+#&gt;   probability_black probability_hispanic probability_white probability_2races
+#&gt; 1            0.3876                0.027            0.5438             0.0278</div><div class='input'>
+<span class='fu'>race</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"franklin"</span>, <span class='st'>"Washington"</span>, <span class='st'>"Jefferson"</span>, <span class='st'>"Sotomayor"</span>, <span class='st'>"Liu"</span>))</div><div class='output co'>#&gt;         name match_name likely_race probability_american_indian
+#&gt; 1   franklin   franklin       white                      0.0083
+#&gt; 2 Washington washington       black                      0.0068
+#&gt; 3  Jefferson  jefferson       black                      0.0190
+#&gt; 4  Sotomayor  sotomayor       white                      0.0000
+#&gt; 5        Liu        liu       asian                      0.0002
+#&gt;   probability_asian probability_black probability_hispanic probability_white
+#&gt; 1            0.0054            0.3876               0.0270            0.5438
+#&gt; 2            0.0030            0.8753               0.0254            0.0517
+#&gt; 3            0.0040            0.7424               0.0247            0.1745
+#&gt; 4            0.0067            0.0062               0.9071            0.0774
+#&gt; 5            0.9562            0.0017               0.0054            0.0179
+#&gt;   probability_2races
+#&gt; 1             0.0278
+#&gt; 2             0.0378
+#&gt; 3             0.0354
+#&gt; 4             0.0026
+#&gt; 5             0.0186</div><div class='input'><span class='fu'>race</span>(<span class='st'>"franklin"</span>, <span class='kw'>probability</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt;       name match_name likely_race
+#&gt; 1 franklin   franklin       white</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

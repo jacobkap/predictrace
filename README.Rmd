@@ -31,5 +31,17 @@ devtools::install_github("jacobkap/race")
 ## Usage
 
 ```{r}
-
+library(race)
 ```
+
+
+```{r}
+race("Washington")
+```
+
+If you only want the most likely race and not the individual probabilities of each race, set the parameter `probability` to FALSE.
+
+```{r}
+race("Washington", probability = FALSE)
+```
+

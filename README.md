@@ -28,3 +28,28 @@ devtools::install_github("jacobkap/race")
 ```
 
 ## Usage
+
+``` r
+library(race)
+```
+
+``` r
+race("Washington")
+```
+
+    ##         name match_name likely_race probability_american_indian
+    ## 1 Washington washington       black                      0.0068
+    ##   probability_asian probability_black probability_hispanic
+    ## 1             0.003            0.8753               0.0254
+    ##   probability_white probability_2races
+    ## 1            0.0517             0.0378
+
+If you only want the most likely race and not the individual
+probabilities of each race, set the parameter `probability` to FALSE.
+
+``` r
+race("Washington", probability = FALSE)
+```
+
+    ##         name match_name likely_race
+    ## 1 Washington washington       black
