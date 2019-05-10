@@ -86,7 +86,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/Predict-race-of-surname.html">Predict race of surname</a>
+      <a href="../articles/Predict-race-of-surname.html">Predict the race of a surname</a>
     </li>
   </ul>
 </li>
@@ -139,9 +139,12 @@ the match-name from the Census data, and the most likely race.</p></td>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A data.frame with three columns: The first column has the name as inputted,
-the second column has the cleaned up name (no spaces or punctuation,
-first letter is capitalized), the final column tells the race of the name</p>
+    <p>A data.frame with three or nine columns: The first column has the name as inputted,
+the second column has the cleaned up name (no spaces or punctuation, all
+lowercase), the third column tells the likely race of the surname. If the
+parameter probability is false, these three columns are all that is returned.
+Otherwise, columns 4-9 tell the specific probability that the surname
+is each race.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>

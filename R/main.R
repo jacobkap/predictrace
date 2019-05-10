@@ -41,19 +41,22 @@ race <- function(name, probability = TRUE) {
   data <- dplyr::left_join(data, surnames_race, by = "name")
 
 
-
-  data <- dplyr::rename(data, name = old_name,
-                        match_name = name)
+  names(data) <- gsub("^name$", "match_name", names(data))
+  names(data) <- gsub("^old_name$", "name", names(data))
   if (probability == FALSE) {
-    data <- dplyr::select(data,
-                          name,
-                          match_name,
-                          likely_race)
+    data <- data[, c("name",
+                     "match_name",
+                     "likely_race")]
   } else {
-    data <- dplyr::select(data,
-                          name,
-                          match_name,
-                          dplyr::everything())
+    data <- data[, c("name",
+                    "match_name",
+                    "likely_race",
+                    "probability_american_indian",
+                    "probability_asian",
+                    "probability_black",
+                    "probability_hispanic",
+                    "probability_white",
+                    "probability_2races")]
   }
   data <- data.frame(data, stringsAsFactors = FALSE)
   data$name <- as.character(data$name)

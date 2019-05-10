@@ -1,5 +1,7 @@
 ---
 title: "Predict the race of a surname"
+author: "Jacob Kaplan"
+date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Predict-race-of-surname}
