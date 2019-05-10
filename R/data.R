@@ -1,7 +1,7 @@
-#' Prices of 50,000 round cut diamonds.
+#' Surnames and number of people of each race with that surname.
 #'
-#' A dataset containing the prices and other attributes of almost 54,000
-#' diamonds.
+#' A dataset containing over 162 thousands surnames and the
+#' number of people of each race with that surname.
 #'
 #' @format A data frame with 162,254 rows and 8 variables:
 #' \describe{

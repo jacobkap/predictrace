@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Predict the race of a surname • race</title>
+<title>Predict the race of a surname • predictrace</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
@@ -29,7 +29,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">race</a>
+        <a class="navbar-link" href="../index.html">predictrace</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
@@ -85,12 +85,12 @@
 
     
     
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(race)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(predictrace)</a></code></pre></div>
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
 <p>The only required parameter is <code>name</code> which is the surname you want to find the race of. Please note that this parameter only accepts surnames, including both first and last name will result in not finding a match in the Census data.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw"><a href="../reference/race.html">race</a></span>(<span class="st">"Washington"</span>)</a>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw"><a href="../reference/predict_race.html">predict_race</a></span>(<span class="st">"Washington"</span>)</a>
 <a class="sourceLine" id="cb2-2" title="2"><span class="co">#&gt;         name match_name likely_race probability_american_indian</span></a>
 <a class="sourceLine" id="cb2-3" title="3"><span class="co">#&gt; 1 Washington washington       black                      0.0068</span></a>
 <a class="sourceLine" id="cb2-4" title="4"><span class="co">#&gt;   probability_asian probability_black probability_hispanic</span></a>
@@ -98,7 +98,7 @@
 <a class="sourceLine" id="cb2-6" title="6"><span class="co">#&gt;   probability_white probability_2races</span></a>
 <a class="sourceLine" id="cb2-7" title="7"><span class="co">#&gt; 1            0.0517             0.0378</span></a></code></pre></div>
 <p>This function accepts a single string or a vector of strings.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw"><a href="../reference/race.html">race</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"Washington"</span>, <span class="st">"Franklin"</span>, <span class="st">"Lincoln"</span>))</a>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw"><a href="../reference/predict_race.html">predict_race</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"Washington"</span>, <span class="st">"Franklin"</span>, <span class="st">"Lincoln"</span>))</a>
 <a class="sourceLine" id="cb3-2" title="2"><span class="co">#&gt;         name match_name likely_race probability_american_indian</span></a>
 <a class="sourceLine" id="cb3-3" title="3"><span class="co">#&gt; 1 Washington washington       black                      0.0068</span></a>
 <a class="sourceLine" id="cb3-4" title="4"><span class="co">#&gt; 2   Franklin   franklin       white                      0.0083</span></a>
@@ -112,7 +112,7 @@
 <a class="sourceLine" id="cb3-12" title="12"><span class="co">#&gt; 2            0.5438             0.0278</span></a>
 <a class="sourceLine" id="cb3-13" title="13"><span class="co">#&gt; 3            0.7490             0.0285</span></a></code></pre></div>
 <p>If you only want the most likely race and not the individual probabilities of each race, set the parameter <code>probability</code> to FALSE.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw"><a href="../reference/race.html">race</a></span>(<span class="st">"Washington"</span>, <span class="dt">probability =</span> <span class="ot">FALSE</span>)</a>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw"><a href="../reference/predict_race.html">predict_race</a></span>(<span class="st">"Washington"</span>, <span class="dt">probability =</span> <span class="ot">FALSE</span>)</a>
 <a class="sourceLine" id="cb4-2" title="2"><span class="co">#&gt;         name match_name likely_race</span></a>
 <a class="sourceLine" id="cb4-3" title="3"><span class="co">#&gt; 1 Washington washington       black</span></a></code></pre></div>
 </div>

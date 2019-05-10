@@ -1,4 +1,4 @@
 library(testthat)
-library(race)
+library(predictrace)
 
-test_check("race")
+test_check("predictrace")

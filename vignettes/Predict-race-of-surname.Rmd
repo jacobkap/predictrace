@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-library(race)
+library(predictrace)
 ```
 
 ## Usage
@@ -26,13 +26,13 @@ The only required parameter is `name` which is the surname you want to find the 
 
 
 ```{r}
-race("Washington")
+predict_race("Washington")
 ```
 
 This function accepts a single string or a vector of strings.
 
 ```{r}
-race(c("Washington", "Franklin", "Lincoln"))
+predict_race(c("Washington", "Franklin", "Lincoln"))
 ```
 
 
@@ -40,6 +40,6 @@ race(c("Washington", "Franklin", "Lincoln"))
 If you only want the most likely race and not the individual probabilities of each race, set the parameter `probability` to FALSE.
 
 ```{r}
-race("Washington", probability = FALSE)
+predict_race("Washington", probability = FALSE)
 ```
 

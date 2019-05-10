@@ -1,12 +1,12 @@
 
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/race)](https://cran.r-project.org/package=race)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/predictpredictrace)](https://cran.r-project.org/package=predictrace)
 [![AppVeyor Build
-Status](https://ci.appveyor.com/api/projects/status/github/jacobkap/race?branch=master&svg=true)](https://ci.appveyor.com/project/jacobkap/race)
+Status](https://ci.appveyor.com/api/projects/status/github/jacobkap/predictrace?branch=master&svg=true)](https://ci.appveyor.com/project/jacobkap/predictrace)
 [![Build
-Status](https://travis-ci.org/jacobkap/race.svg?branch=master)](https://travis-ci.org/jacobkap/race)
+Status](https://travis-ci.org/jacobkap/predictrace.svg?branch=master)](https://travis-ci.org/jacobkap/predictrace)
 [![Coverage
-status](https://codecov.io/gh/jacobkap/race/branch/master/graph/badge.svg)](https://codecov.io/github/jacobkap/race?branch=master)
-[![](http://cranlogs.r-pkg.org/badges/grand-total/race?color=blue)](https://cran.r-project.org/package=race)
+status](https://codecov.io/gh/jacobkap/predictrace/branch/master/graph/badge.svg)](https://codecov.io/github/jacobkap/predictrace?branch=master)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/predictrace?color=blue)](https://cran.r-project.org/package=predictrace)
 
 ## Overview
 
@@ -20,12 +20,12 @@ Hispanic, White, or two or more races.
 
 ``` r
 To install this package, use the code
-install.packages("race")
+install.packages("predictrace")
 
 
-# The development version is available on Github.
+# Th e development version is available on Github.
 # install.packages("devtools")
-devtools::install_github("jacobkap/race")
+devtools::install_github("jacobkap/predictrace")
 ```
 
 ## Usage
@@ -36,11 +36,11 @@ including both first and last name will result in not finding a match in
 the Census data.
 
 ``` r
-library(race)
+library(predictrace)
 ```
 
 ``` r
-race("Washington")
+predict_race("Washington")
 ```
 
     ##         name match_name likely_race probability_american_indian
@@ -53,7 +53,7 @@ race("Washington")
 This function accepts a single string or a vector of strings.
 
 ``` r
-race(c("Washington", "Franklin", "Lincoln"))
+predict_race(c("Washington", "Franklin", "Lincoln"))
 ```
 
     ##         name match_name likely_race probability_american_indian
@@ -73,7 +73,7 @@ If you only want the most likely race and not the individual
 probabilities of each race, set the parameter `probability` to FALSE.
 
 ``` r
-race("Washington", probability = FALSE)
+predict_race("Washington", probability = FALSE)
 ```
 
     ##         name match_name likely_race

@@ -3,7 +3,7 @@
 \docType{data}
 \name{surnames_race}
 \alias{surnames_race}
-\title{Prices of 50,000 round cut diamonds.}
+\title{Surnames and number of people of each race with that surname.}
 \format{A data frame with 162,254 rows and 8 variables:
 \describe{
   \item{name}{Surname}
@@ -23,7 +23,7 @@
 surnames_race
 }
 \description{
-A dataset containing the prices and other attributes of almost 54,000
-diamonds.
+A dataset containing over 162 thousands surnames and the
+number of people of each race with that surname.
 }
 \keyword{datasets}

@@ -17,11 +17,11 @@
 #' @export
 #'
 #' @examples
-#' race("franklin")
+#' predict_race("franklin")
 #'
-#' race(c("franklin", "Washington", "Jefferson", "Sotomayor", "Liu"))
-#' race("franklin", probability = FALSE)
-race <- function(name, probability = TRUE) {
+#' predict_race(c("franklin", "Washington", "Jefferson", "Sotomayor", "Liu"))
+#' predict_race("franklin", probability = FALSE)
+predict_race <- function(name, probability = TRUE) {
 
   if (!is.character(name)) {
     stop("name must be a character type.")

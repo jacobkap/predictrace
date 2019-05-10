@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Surnames and number of people of each race with that surname. — surnames_race • predictrace</title>
+<title>Find the race of a surname — predict_race • predictrace</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,10 +30,9 @@
 
 
 
-<meta property="og:title" content="Surnames and number of people of each race with that surname. — surnames_race" />
+<meta property="og:title" content="Find the race of a surname — predict_race" />
 
-<meta property="og:description" content="A dataset containing over 162 thousands surnames and the
-number of people of each race with that surname." />
+<meta property="og:description" content="Find the race of a surname" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -110,48 +109,78 @@ number of people of each race with that surname." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Surnames and number of people of each race with that surname.</h1>
+    <h1>Find the race of a surname</h1>
     
-    <div class="hidden name"><code>surnames_race.Rd</code></div>
+    <div class="hidden name"><code>predict_race.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>A dataset containing over 162 thousands surnames and the
-number of people of each race with that surname.</p>
+    <p>Find the race of a surname</p>
     
     </div>
 
-    <pre class="usage"><span class='no'>surnames_race</span></pre>
-        
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
-
-    <p>A data frame with 162,254 rows and 8 variables:</p><dl class='dl-horizontal'>
-  <dt>name</dt><dd><p>Surname</p></dd>
-  <dt>likely_race</dt><dd><p>The most likely race based on the probability of each race</p></dd>
-  <dt>probability_american_indian</dt><dd><p>Probability that the surname is American Indian</p></dd>
-  <dt>probability_asian</dt><dd><p>Probability that the surname is Asian</p></dd>
-  <dt>probability_black</dt><dd><p>Probability that the surname is Black</p></dd>
-  <dt>probability_hispanic</dt><dd><p>Probability that the surname is Hispanic</p></dd>
-  <dt>probability_white</dt><dd><p>Probability that the surname is White</p></dd>
-  <dt>probability_2races</dt><dd><p>Probability that the surname is two or more races</p></dd>
-  ...
-</dl>
+    <pre class="usage"><span class='fu'>predict_race</span>(<span class='no'>name</span>, <span class='kw'>probability</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
-    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>name</th>
+      <td><p>String or vector of strings of surname that you want to know the race of.</p></td>
+    </tr>
+    <tr>
+      <th>probability</th>
+      <td><p>If TRUE (default) will provide columns for each race with the probability
+that the surname is of that race. If FALSE, will only return the name,
+the match-name from the Census data, and the most likely race.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p><a href='https://www.census.gov/topics/population/genealogy/data/2010_surnames.html'>https://www.census.gov/topics/population/genealogy/data/2010_surnames.html</a></p>
+    <p>A data.frame with three or nine columns: The first column has the name as inputted,
+the second column has the cleaned up name (no spaces or punctuation, all
+lowercase), the third column tells the likely race of the surname. If the
+parameter probability is false, these three columns are all that is returned.
+Otherwise, columns 4-9 tell the specific probability that the surname
+is each race.</p>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>predict_race</span>(<span class='st'>"franklin"</span>)</div><div class='output co'>#&gt;       name match_name likely_race probability_american_indian probability_asian
+#&gt; 1 franklin   franklin       white                      0.0083            0.0054
+#&gt;   probability_black probability_hispanic probability_white probability_2races
+#&gt; 1            0.3876                0.027            0.5438             0.0278</div><div class='input'>
+<span class='fu'>predict_race</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"franklin"</span>, <span class='st'>"Washington"</span>, <span class='st'>"Jefferson"</span>, <span class='st'>"Sotomayor"</span>, <span class='st'>"Liu"</span>))</div><div class='output co'>#&gt;         name match_name likely_race probability_american_indian
+#&gt; 1   franklin   franklin       white                      0.0083
+#&gt; 2 Washington washington       black                      0.0068
+#&gt; 3  Jefferson  jefferson       black                      0.0190
+#&gt; 4  Sotomayor  sotomayor       white                      0.0000
+#&gt; 5        Liu        liu       asian                      0.0002
+#&gt;   probability_asian probability_black probability_hispanic probability_white
+#&gt; 1            0.0054            0.3876               0.0270            0.5438
+#&gt; 2            0.0030            0.8753               0.0254            0.0517
+#&gt; 3            0.0040            0.7424               0.0247            0.1745
+#&gt; 4            0.0067            0.0062               0.9071            0.0774
+#&gt; 5            0.9562            0.0017               0.0054            0.0179
+#&gt;   probability_2races
+#&gt; 1             0.0278
+#&gt; 2             0.0378
+#&gt; 3             0.0354
+#&gt; 4             0.0026
+#&gt; 5             0.0186</div><div class='input'><span class='fu'>predict_race</span>(<span class='st'>"franklin"</span>, <span class='kw'>probability</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt;       name match_name likely_race
+#&gt; 1 franklin   franklin       white</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#format">Format</a></li>
-
-      <li><a href="#source">Source</a></li>
-          </ul>
+      <li><a href="#value">Value</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

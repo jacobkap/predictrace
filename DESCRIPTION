@@ -1,4 +1,4 @@
-Package: race
+Package: predictrace
 Title: Predict the Race of a Given Surname Using Census Data
 Version: 1.0.0
 Authors@R: 
