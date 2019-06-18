@@ -1,5 +1,5 @@
 
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/predictpredictrace)](https://cran.r-project.org/package=predictrace)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/predictrace)](https://cran.r-project.org/package=predictrace)
 [![AppVeyor Build
 Status](https://ci.appveyor.com/api/projects/status/github/jacobkap/predictrace?branch=master&svg=true)](https://ci.appveyor.com/project/jacobkap/predictrace)
 [![Build

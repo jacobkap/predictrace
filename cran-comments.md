@@ -11,6 +11,8 @@
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
+There were no ERRORs or WARNINGs or NOTES.
 
-* New submission
+## Reverse dependencies
+
+There are no reverse dependencies
