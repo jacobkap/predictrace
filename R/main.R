@@ -38,7 +38,7 @@ predict_race <- function(name, probability = TRUE) {
 
   data$name <- tolower(data$name)
   data$name <- gsub("[[:punct:]]| ", "", data$name)
-  data <- dplyr::left_join(data, surnames_race, by = "name")
+  data <- dplyr::left_join(data, predictrace::surnames_race, by = "name")
 
 
   names(data) <- gsub("^name$", "match_name", names(data))
@@ -49,14 +49,14 @@ predict_race <- function(name, probability = TRUE) {
                      "likely_race")]
   } else {
     data <- data[, c("name",
-                    "match_name",
-                    "likely_race",
-                    "probability_american_indian",
-                    "probability_asian",
-                    "probability_black",
-                    "probability_hispanic",
-                    "probability_white",
-                    "probability_2races")]
+                     "match_name",
+                     "likely_race",
+                     "probability_american_indian",
+                     "probability_asian",
+                     "probability_black",
+                     "probability_hispanic",
+                     "probability_white",
+                     "probability_2races")]
   }
   data <- data.frame(data, stringsAsFactors = FALSE)
   data$name <- as.character(data$name)
