@@ -1,6 +1,6 @@
 Package: predictrace
 Title: Predict the Race of a Given Surname Using Census Data
-Version: 1.0.1
+Version: 1.1.1
 Authors@R: 
     person(given = "Jacob",
            family = "Kaplan",
@@ -26,5 +26,5 @@ Imports:
     dplyr,
     tidyr,
     here
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.1
 Language: en-US

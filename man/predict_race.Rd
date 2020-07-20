@@ -16,7 +16,7 @@ the match-name from the Census data, and the most likely race.}
 \value{
 A data.frame with three or nine columns: The first column has the name as inputted,
 the second column has the cleaned up name (no spaces or punctuation, all
-lowercase), the third column tells the likely race of the surname. If the
+lowercase), the third column tells the likely race of the surname (if there are multiple races with the same probability of a match, it will be a string with each race separated by a comma). If the
 parameter probability is false, these three columns are all that is returned.
 Otherwise, columns 4-9 tell the specific probability that the surname
 is each race.

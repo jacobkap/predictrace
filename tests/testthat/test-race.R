@@ -3,6 +3,8 @@ smith_lincoln <- predictrace::predict_race(c("smith", "Lincoln"))
 ben_smith     <- predictrace::predict_race("Ben smith")
 lincoln       <- predictrace::predict_race("Lincoln")
 rlincoln      <- predictrace::predict_race("RLincoln")
+perez         <- predictrace::predict_race("Perez")
+lucky         <- predictrace::predict_race("lucky")
 
 test_that("predict_race works", {
 
@@ -20,6 +22,8 @@ test_that("predict_race works", {
                                                      "likely_race"))
 
   expect_equal(smith$likely_race, "white")
+  expect_equal(perez$likely_race, "hispanic")
+  expect_equal(lucky$likely_race, "black, white")
   expect_equal(predict_race("smith", probability = FALSE)$likely_race, "white")
   expect_equal(smith$probability_american_indian, 0.0089)
   expect_equal(smith$probability_asian, 0.005)
@@ -27,6 +31,14 @@ test_that("predict_race works", {
   expect_equal(smith$probability_hispanic, 0.024)
   expect_equal(smith$probability_white, 0.709)
   expect_equal(smith$probability_2races, 0.0219)
+
+
+  expect_equal(lucky$probability_american_indian, 0.0078)
+  expect_equal(lucky$probability_asian, 0.0621)
+  expect_equal(lucky$probability_black, 0.436)
+  expect_equal(lucky$probability_hispanic, 0.0291)
+  expect_equal(lucky$probability_white, 0.436)
+  expect_equal(lucky$probability_2races, 0.0291)
 
   expect_equal(smith_lincoln$likely_race, c("white", "white"))
   expect_equal(predict_race(c("smith", "Lincoln"), probability = FALSE)$likely_race,

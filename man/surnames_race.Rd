@@ -4,7 +4,8 @@
 \name{surnames_race}
 \alias{surnames_race}
 \title{Surnames and number of people of each race with that surname.}
-\format{A data frame with 162,254 rows and 8 variables:
+\format{
+A data frame with 162,254 rows and 8 variables:
 \describe{
   \item{name}{Surname}
   \item{likely_race}{The most likely race based on the probability of each race}
@@ -15,7 +16,8 @@
   \item{probability_white}{Probability that the surname is White}
   \item{probability_2races}{Probability that the surname is two or more races}
   ...
-}}
+}
+}
 \source{
 \url{https://www.census.gov/topics/population/genealogy/data/2010_surnames.html}
 }
