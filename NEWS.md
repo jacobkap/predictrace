@@ -1,3 +1,7 @@
+# predictrace 1.2.1
+
+* Combines 2010 Census data and 2000 Census data together. 
+
 # predictrace 1.1.1
 
 * Fix bug where Hispanic names are classified as White. Closes #1 by @jmrphy. 

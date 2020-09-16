@@ -5,7 +5,7 @@
 \alias{surnames_race}
 \title{Surnames and number of people of each race with that surname.}
 \format{
-A data frame with 162,254 rows and 8 variables:
+A data frame with 167,408 rows and 8 variables:
 \describe{
   \item{name}{Surname}
   \item{likely_race}{The most likely race based on the probability of each race}
@@ -19,13 +19,13 @@ A data frame with 162,254 rows and 8 variables:
 }
 }
 \source{
-\url{https://www.census.gov/topics/population/genealogy/data/2010_surnames.html}
+\url{https://www.census.gov/topics/population/genealogy/data/2010_surnames.html} \url{https://www.census.gov/topics/population/genealogy/data/2000_surnames.html}
 }
 \usage{
 surnames_race
 }
 \description{
-A dataset containing over 162 thousands surnames and the
+A dataset containing over 167 thousands surnames and the
 number of people of each race with that surname.
 }
 \keyword{datasets}
