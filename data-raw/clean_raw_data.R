@@ -4,10 +4,9 @@
 
 # get_surnames_race <- function(){
 #   # https://www.census.gov/topics/population/genealogy/data/2010_surnames.html
-#   setwd(here::here("data-raw"))
-#   data <- read.csv("Names_2010Census.csv")
+#   data <- read.csv("data-raw/Names_2010Census.csv")
 #   data <- clean_data(data)
-#   data_2000 <- readxl::read_excel("app_c.xlsx", sheet = 1)
+#   data_2000 <- readxl::read_excel("data-raw/app_c.xlsx", sheet = 1)
 #   data_2000 <- clean_data(data_2000)
 #
 #   data <-
