@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">predictrace</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.2.1</span>
       </span>
     </div>
 
@@ -91,20 +91,24 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<div class="sourceCode" id="cb1"><pre class="r">To install this package, use the code
-install.packages("predictrace")
-
-
-# Th e development version is available on Github.
-# install.packages("devtools")
-devtools::install_github("jacobkap/predictrace")</pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>To install this package, use the code</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">install.packages</span>(<span class="st">"predictrace"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># Th e development version is available on Github.</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="co"># install.packages("devtools")</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"jacobkap/predictrace"</span>)</span></code></pre></div>
 </div>
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
 <p>The only required parameter is <code>name</code> which is the surname you want to find the race of. Please note that this parameter only accepts surnames, including both first and last name will result in not finding a match in the Census data.</p>
-<div class="sourceCode" id="cb2"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">predictrace</span>)</pre></div>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="reference/predict_race.html">predict_race</a></span>(<span class="st">"Washington"</span>)</pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/jacobkap/predictrace">predictrace</a></span>)
+</pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit">
+<span class="fu"><a href="reference/predict_race.html">predict_race</a></span>(<span class="st">"Washington"</span>)
+</pre></div>
 <div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">##         name match_name likely_race probability_american_indian</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="co">## 1 Washington washington       black                      0.0068</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="co">##   probability_asian probability_black probability_hispanic</span></span>
@@ -112,7 +116,9 @@ devtools::install_github("jacobkap/predictrace")</pre></div>
 <span id="cb4-5"><a href="#cb4-5"></a><span class="co">##   probability_white probability_2races</span></span>
 <span id="cb4-6"><a href="#cb4-6"></a><span class="co">## 1            0.0517             0.0378</span></span></code></pre></div>
 <p>This function accepts a single string or a vector of strings.</p>
-<div class="sourceCode" id="cb5"><pre class="r"><span class="fu"><a href="reference/predict_race.html">predict_race</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Washington"</span>, <span class="st">"Franklin"</span>, <span class="st">"Lincoln"</span>))</pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit">
+<span class="fu"><a href="reference/predict_race.html">predict_race</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Washington"</span>, <span class="st">"Franklin"</span>, <span class="st">"Lincoln"</span>))
+</pre></div>
 <div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">##         name match_name likely_race probability_american_indian</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="co">## 1 Washington washington       black                      0.0068</span></span>
 <span id="cb6-3"><a href="#cb6-3"></a><span class="co">## 2   Franklin   franklin       white                      0.0083</span></span>
@@ -126,7 +132,9 @@ devtools::install_github("jacobkap/predictrace")</pre></div>
 <span id="cb6-11"><a href="#cb6-11"></a><span class="co">## 2            0.5438             0.0278</span></span>
 <span id="cb6-12"><a href="#cb6-12"></a><span class="co">## 3            0.7490             0.0285</span></span></code></pre></div>
 <p>If you only want the most likely race and not the individual probabilities of each race, set the parameter <code>probability</code> to FALSE.</p>
-<div class="sourceCode" id="cb7"><pre class="r"><span class="fu"><a href="reference/predict_race.html">predict_race</a></span>(<span class="st">"Washington"</span>, <span class="kw">probability</span> <span class="kw">=</span> <span class="fl">FALSE</span>)</pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit">
+<span class="fu"><a href="reference/predict_race.html">predict_race</a></span>(<span class="st">"Washington"</span>, probability = <span class="fl">FALSE</span>)
+</pre></div>
 <div class="sourceCode" id="cb8"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">##         name match_name likely_race</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="co">## 1 Washington washington       black</span></span></code></pre></div>
 </div>
@@ -178,7 +186,7 @@ devtools::install_github("jacobkap/predictrace")</pre></div>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

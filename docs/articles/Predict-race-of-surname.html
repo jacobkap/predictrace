@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">predictrace</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.2.1</span>
       </span>
     </div>
 
@@ -85,7 +85,7 @@
       <h1 data-toc-skip>Predict the race of a surname</h1>
                         <h4 class="author">Jacob Kaplan</h4>
             
-            <h4 class="date">2020-07-21</h4>
+            <h4 class="date">2020-09-16</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/jacobkap/predictrace/blob/master/vignettes/Predict-race-of-surname.Rmd"><code>vignettes/Predict-race-of-surname.Rmd</code></a></small>
       <div class="hidden name"><code>Predict-race-of-surname.Rmd</code></div>
@@ -94,36 +94,44 @@
 
     
     
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">predictrace</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/jacobkap/predictrace">predictrace</a></span>)
+</pre></div>
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
 <p>The only required parameter is <code>name</code> which is the surname you want to find the race of. Please note that this parameter only accepts surnames, including both first and last name will result in not finding a match in the Census data.</p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="fu"><a href="../reference/predict_race.html">predict_race</a></span>(<span class="st">"Washington"</span>)
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="fu"><a href="../reference/predict_race.html">predict_race</a></span>(<span class="st">"Washington"</span>)
 <span class="co">#&gt;         name match_name likely_race probability_american_indian</span>
-<span class="co">#&gt; 1 Washington washington       black                      0.0068</span>
+<span class="co">#&gt; 1 Washington washington       black                      0.0066</span>
 <span class="co">#&gt;   probability_asian probability_black probability_hispanic probability_white</span>
-<span class="co">#&gt; 1             0.003            0.8753               0.0254            0.0517</span>
+<span class="co">#&gt; 1            0.0028            0.8865               0.0202            0.0517</span>
 <span class="co">#&gt;   probability_2races</span>
-<span class="co">#&gt; 1             0.0378</span></pre></body></html></div>
+<span class="co">#&gt; 1             0.0323</span>
+</pre></div>
 <p>This function accepts a single string or a vector of strings.</p>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="../reference/predict_race.html">predict_race</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Washington"</span>, <span class="st">"Franklin"</span>, <span class="st">"Lincoln"</span>))
+<div class="sourceCode" id="cb3"><pre class="downlit">
+<span class="fu"><a href="../reference/predict_race.html">predict_race</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Washington"</span>, <span class="st">"Franklin"</span>, <span class="st">"Lincoln"</span>))
 <span class="co">#&gt;         name match_name likely_race probability_american_indian</span>
-<span class="co">#&gt; 1 Washington washington       black                      0.0068</span>
-<span class="co">#&gt; 2   Franklin   franklin       white                      0.0083</span>
-<span class="co">#&gt; 3    Lincoln    lincoln       white                      0.0368</span>
+<span class="co">#&gt; 1 Washington washington       black                      0.0066</span>
+<span class="co">#&gt; 2   Franklin   franklin       white                      0.0085</span>
+<span class="co">#&gt; 3    Lincoln    lincoln       white                      0.0373</span>
 <span class="co">#&gt;   probability_asian probability_black probability_hispanic probability_white</span>
-<span class="co">#&gt; 1            0.0030            0.8753               0.0254            0.0517</span>
-<span class="co">#&gt; 2            0.0054            0.3876               0.0270            0.5438</span>
-<span class="co">#&gt; 3            0.0135            0.1471               0.0251            0.7490</span>
+<span class="co">#&gt; 1            0.0028            0.8865               0.0202            0.0517</span>
+<span class="co">#&gt; 2            0.0050            0.3828               0.0222            0.5577</span>
+<span class="co">#&gt; 3            0.0125            0.1421               0.0215            0.7615</span>
 <span class="co">#&gt;   probability_2races</span>
-<span class="co">#&gt; 1             0.0378</span>
-<span class="co">#&gt; 2             0.0278</span>
-<span class="co">#&gt; 3             0.0285</span></pre></body></html></div>
+<span class="co">#&gt; 1             0.0323</span>
+<span class="co">#&gt; 2             0.0238</span>
+<span class="co">#&gt; 3             0.0250</span>
+</pre></div>
 <p>If you only want the most likely race and not the individual probabilities of each race, set the parameter <code>probability</code> to FALSE.</p>
-<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="fu"><a href="../reference/predict_race.html">predict_race</a></span>(<span class="st">"Washington"</span>, <span class="kw">probability</span> <span class="kw">=</span> <span class="fl">FALSE</span>)
+<div class="sourceCode" id="cb4"><pre class="downlit">
+<span class="fu"><a href="../reference/predict_race.html">predict_race</a></span>(<span class="st">"Washington"</span>, probability = <span class="fl">FALSE</span>)
 <span class="co">#&gt;         name match_name likely_race</span>
-<span class="co">#&gt; 1 Washington washington       black</span></pre></body></html></div>
+<span class="co">#&gt; 1 Washington washington       black</span>
+</pre></div>
 </div>
   </div>
 
@@ -142,7 +150,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
