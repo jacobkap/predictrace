@@ -1,6 +1,6 @@
-surnames_race <- get_surnames_race()
-usethis::use_data(surnames_race, internal = TRUE, overwrite = TRUE)
-usethis::use_data(surnames_race, internal = FALSE, overwrite = TRUE)
+# surnames_race <- get_surnames_race()
+# usethis::use_data(surnames_race, internal = TRUE, overwrite = TRUE)
+# usethis::use_data(surnames_race, internal = FALSE, overwrite = TRUE)
 
 get_surnames_race <- function(){
   # https://www.census.gov/topics/population/genealogy/data/2010_surnames.html
