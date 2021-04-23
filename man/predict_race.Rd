@@ -2,31 +2,39 @@
 % Please edit documentation in R/main.R
 \name{predict_race}
 \alias{predict_race}
-\title{Find the race of a surname}
+\title{Find the race of a surname or first name}
 \usage{
-predict_race(name, probability = TRUE)
+predict_race(name, probability = TRUE, surname = TRUE)
 }
 \arguments{
-\item{name}{String or vector of strings of surname that you want to know the race of.}
+\item{name}{String or vector of strings of surname or first name that you want to know the race of.}
 
 \item{probability}{If TRUE (default) will provide columns for each race with the probability
 that the surname is of that race. If FALSE, will only return the name,
 the match-name from the Census data, and the most likely race.}
+
+\item{surname}{If TRUE (default) will return the race based on the inputted name being a surname.
+If FALSE, will return the race based on the inputted name being a first name.}
 }
 \value{
 A data.frame with three or nine columns: The first column has the name as inputted,
 the second column has the cleaned up name (no spaces or punctuation, all
-lowercase), the third column tells the likely race of the surname (if there are multiple races with the same probability of a match, it will be a string with each race separated by a comma). If the
+lowercase), the third column tells the likely race of the surname or first name
+(if there are multiple races with the same probability of a match, it will be
+a string with each race separated by a comma). If the
 parameter probability is false, these three columns are all that is returned.
-Otherwise, columns 4-9 tell the specific probability that the surname
+Otherwise, columns 4-9 tell the specific probability that the surname or first name
 is each race.
 }
 \description{
-Find the race of a surname
+The surname data comes from the United States Census. The first name
+data comes from Tzioumis (2018, <dx.doi.org/10.1038/sdata.2018.25>)
 }
 \examples{
 predict_race("franklin")
 
 predict_race(c("franklin", "Washington", "Jefferson", "Sotomayor", "Liu"))
 predict_race("franklin", probability = FALSE)
+predict_race("jacob", probability = FALSE, surname = FALSE)
+predict_race("jacob", probability = TRUE, surname = FALSE)
 }

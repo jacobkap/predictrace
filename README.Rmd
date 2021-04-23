@@ -14,7 +14,9 @@ status](https://codecov.io/gh/jacobkap/predictrace/branch/master/graph/badge.svg
 
 ## Overview
 
-The goal of race is to predict the race of a surname. This package uses U.S. Census data which says how many people of each race has a certain surname. From this we can predict which race is mostly likely to have that surname. The possible races are American Indian, Asian, Black, Hispanic, White, or two or more races. 
+The goal of race is to predict the race of a surname or first name. This package uses U.S. Census data which says how many people of each race has a certain surname. For first name data, this package uses data from Tzioumis (2018). From this we can predict which race is mostly likely to have that surname or first name. The possible races are American Indian, Asian, Black, Hispanic, White, or two or more races. 
+
+Full citation for the Tzioumis data: Tzioumis, Konstantinos (2018) Demographic aspects of first names, Scientific Data, 5:180025 [dx.doi.org/10.1038/sdata.2018.25]. 
 
 ## Installation
 

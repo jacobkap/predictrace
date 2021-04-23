@@ -1,6 +1,6 @@
 Package: predictrace
 Title: Predict the Race of a Given Surname Using Census Data
-Version: 1.2.1
+Version: 2.0.0
 Authors@R: 
     person(given = "Jacob",
            family = "Kaplan",
@@ -28,3 +28,4 @@ Imports:
     here
 RoxygenNote: 7.1.1
 Language: en-US
+Config/testthat/edition: 3
