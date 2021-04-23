@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">predictrace</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.2.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0</span>
       </span>
     </div>
 
@@ -39,7 +39,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -65,7 +65,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/jacobkap/predictrace/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -79,13 +79,13 @@
 
       
 
-      </header><script src="Predict-race-of-surname_files/header-attrs-2.3.2/header-attrs.js"></script><script src="Predict-race-of-surname_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><script src="Predict-race-of-surname_files/header-attrs-2.7/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Predict the race of a surname</h1>
                         <h4 class="author">Jacob Kaplan</h4>
             
-            <h4 class="date">2020-09-16</h4>
+            <h4 class="date">2021-04-23</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/jacobkap/predictrace/blob/master/vignettes/Predict-race-of-surname.Rmd"><code>vignettes/Predict-race-of-surname.Rmd</code></a></small>
       <div class="hidden name"><code>Predict-race-of-surname.Rmd</code></div>
@@ -94,25 +94,23 @@
 
     
     
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/jacobkap/predictrace">predictrace</a></span>)
-</pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jacobkap/predictrace">predictrace</a></span><span class="op">)</span></code></pre></div>
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
 <p>The only required parameter is <code>name</code> which is the surname you want to find the race of. Please note that this parameter only accepts surnames, including both first and last name will result in not finding a match in the Census data.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="fu"><a href="../reference/predict_race.html">predict_race</a></span>(<span class="st">"Washington"</span>)
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/predict_race.html">predict_race</a></span><span class="op">(</span><span class="st">"Washington"</span><span class="op">)</span>
 <span class="co">#&gt;         name match_name likely_race probability_american_indian</span>
 <span class="co">#&gt; 1 Washington washington       black                      0.0066</span>
 <span class="co">#&gt;   probability_asian probability_black probability_hispanic probability_white</span>
 <span class="co">#&gt; 1            0.0028            0.8865               0.0202            0.0517</span>
 <span class="co">#&gt;   probability_2races</span>
-<span class="co">#&gt; 1             0.0323</span>
-</pre></div>
+<span class="co">#&gt; 1             0.0323</span></code></pre></div>
 <p>This function accepts a single string or a vector of strings.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="fu"><a href="../reference/predict_race.html">predict_race</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Washington"</span>, <span class="st">"Franklin"</span>, <span class="st">"Lincoln"</span>))
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/predict_race.html">predict_race</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Washington"</span>, <span class="st">"Franklin"</span>, <span class="st">"Lincoln"</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt;         name match_name likely_race probability_american_indian</span>
 <span class="co">#&gt; 1 Washington washington       black                      0.0066</span>
 <span class="co">#&gt; 2   Franklin   franklin       white                      0.0085</span>
@@ -124,14 +122,12 @@
 <span class="co">#&gt;   probability_2races</span>
 <span class="co">#&gt; 1             0.0323</span>
 <span class="co">#&gt; 2             0.0238</span>
-<span class="co">#&gt; 3             0.0250</span>
-</pre></div>
+<span class="co">#&gt; 3             0.0250</span></code></pre></div>
 <p>If you only want the most likely race and not the individual probabilities of each race, set the parameter <code>probability</code> to FALSE.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit">
-<span class="fu"><a href="../reference/predict_race.html">predict_race</a></span>(<span class="st">"Washington"</span>, probability = <span class="fl">FALSE</span>)
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/predict_race.html">predict_race</a></span><span class="op">(</span><span class="st">"Washington"</span>, probability <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="co">#&gt;         name match_name likely_race</span>
-<span class="co">#&gt; 1 Washington washington       black</span>
-</pre></div>
+<span class="co">#&gt; 1 Washington washington       black</span></code></pre></div>
 </div>
   </div>
 

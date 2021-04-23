@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Find the race of a surname or first name — predict_race • predictrace</title>
+<title>Find the gender of a first name — predict_gender • predictrace</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,12 @@
 
 
 
-<meta property="og:title" content="Find the race of a surname or first name — predict_race" />
-<meta property="og:description" content="The surname data comes from the United States Census. The first name
-data comes from Tzioumis (2018, &amp;lt;dx.doi.org/10.1038/sdata.2018.25&amp;gt;)" />
+<meta property="og:title" content="Find the gender of a first name — predict_gender" />
+<meta property="og:description" content="The surname data comes from the United States Social Security Administration (SSA).
+This data has the number of people with that name that are identified as female
+or male so the probability female/male is the proportion of all people with that
+name that are female/male. SSA data is available annually from 1880-2019, this
+aggregates all years together." />
 
 
 
@@ -124,35 +127,33 @@ data comes from Tzioumis (2018, &amp;lt;dx.doi.org/10.1038/sdata.2018.25&amp;gt;
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Find the race of a surname or first name</h1>
+    <h1>Find the gender of a first name</h1>
     <small class="dont-index">Source: <a href='https://github.com/jacobkap/predictrace/blob/master/R/main.R'><code>R/main.R</code></a></small>
-    <div class="hidden name"><code>predict_race.Rd</code></div>
+    <div class="hidden name"><code>predict_gender.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>The surname data comes from the United States Census. The first name
-data comes from Tzioumis (2018, &lt;dx.doi.org/10.1038/sdata.2018.25&gt;)</p>
+    <p>The surname data comes from the United States Social Security Administration (SSA).
+This data has the number of people with that name that are identified as female
+or male so the probability female/male is the proportion of all people with that
+name that are female/male. SSA data is available annually from 1880-2019, this
+aggregates all years together.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>predict_race</span><span class='op'>(</span><span class='va'>name</span>, probability <span class='op'>=</span> <span class='cn'>TRUE</span>, surname <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>predict_gender</span><span class='op'>(</span><span class='va'>name</span>, probability <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>name</th>
-      <td><p>String or vector of strings of surname or first name that you want to know the race of.</p></td>
+      <td><p>String or vector of strings of  the first name that you want to know the gender of.</p></td>
     </tr>
     <tr>
       <th>probability</th>
       <td><p>If TRUE (default) will provide columns for each race with the probability
-that the surname is of that race. If FALSE, will only return the name,
-the match-name from the Census data, and the most likely race.</p></td>
-    </tr>
-    <tr>
-      <th>surname</th>
-      <td><p>If TRUE (default) will return the race based on the inputted name being a surname.
-If FALSE, will return the race based on the inputted name being a first name.</p></td>
+that the first name is of that gender If FALSE, will only return the name,
+the match-name from the SSA data, and the most likely gender.</p></td>
     </tr>
     </table>
 
@@ -160,46 +161,31 @@ If FALSE, will return the race based on the inputted name being a first name.</p
 
     <p>A data.frame with three or nine columns: The first column has the name as inputted,
 the second column has the cleaned up name (no spaces or punctuation, all
-lowercase), the third column tells the likely race of the surname or first name
-(if there are multiple races with the same probability of a match, it will be
+lowercase), the third column tells the likely gender of the first name
+(if there are multiple genders with the same probability of a match, it will be
 a string with each race separated by a comma). If the
 parameter probability is false, these three columns are all that is returned.
-Otherwise, columns 4-9 tell the specific probability that the surname or first name
-is each race.</p>
+Otherwise, columns 4-5 tell the specific probability that the surname is female
+or male.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>predict_race</span><span class='op'>(</span><span class='st'>"franklin"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;       name match_name likely_race probability_american_indian probability_asian
-#&gt; 1 franklin   franklin       white                      0.0085             0.005
-#&gt;   probability_black probability_hispanic probability_white probability_2races
-#&gt; 1            0.3828               0.0222            0.5577             0.0238</div><div class='input'>
-<span class='fu'>predict_race</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"franklin"</span>, <span class='st'>"Washington"</span>, <span class='st'>"Jefferson"</span>, <span class='st'>"Sotomayor"</span>, <span class='st'>"Liu"</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;         name match_name likely_race probability_american_indian
-#&gt; 1   franklin   franklin       white                      0.0085
-#&gt; 2 Washington washington       black                      0.0066
-#&gt; 3  Jefferson  jefferson       black                      0.0188
-#&gt; 4  Sotomayor  sotomayor    hispanic                      0.0000
-#&gt; 5        Liu        liu       asian                      0.0003
-#&gt;   probability_asian probability_black probability_hispanic probability_white
-#&gt; 1            0.0050            0.3828               0.0222            0.5577
-#&gt; 2            0.0028            0.8865               0.0202            0.0517
-#&gt; 3            0.0033            0.7472               0.0204            0.1806
-#&gt; 4            0.0068            0.0057               0.8924            0.0918
-#&gt; 5            0.9556            0.0016               0.0051            0.0181
-#&gt;   probability_2races
-#&gt; 1             0.0238
-#&gt; 2             0.0323
-#&gt; 3             0.0298
-#&gt; 4             0.0014
-#&gt; 5             0.0194</div><div class='input'><span class='fu'>predict_race</span><span class='op'>(</span><span class='st'>"franklin"</span>, probability <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;       name match_name likely_race
-#&gt; 1 franklin   franklin       white</div><div class='input'><span class='fu'>predict_race</span><span class='op'>(</span><span class='st'>"jacob"</span>, probability <span class='op'>=</span> <span class='cn'>FALSE</span>, surname <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;    name match_name likely_race
-#&gt; 1 jacob      jacob       white</div><div class='input'><span class='fu'>predict_race</span><span class='op'>(</span><span class='st'>"jacob"</span>, probability <span class='op'>=</span> <span class='cn'>TRUE</span>, surname <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;    name match_name likely_race probability_american_indian probability_asian
-#&gt; 1 jacob      jacob       white                      0.0015            0.0321
-#&gt;   probability_black probability_hispanic probability_white probability_2races
-#&gt; 1            0.0163               0.0301            0.9184             0.0015</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>predict_gender</span><span class='op'>(</span><span class='st'>"tyrion"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;     name match_name likely_gender probability_female probability_male
+#&gt; 1 tyrion     tyrion          male          0.0115894        0.9884106</div><div class='input'>
+<span class='fu'>predict_gender</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"harry"</span>, <span class='st'>"ron"</span>, <span class='st'>"hermione"</span>, <span class='st'>"DEAN"</span>, <span class='st'>"NEVILLE"</span>, <span class='st'>"Cho"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;       name match_name likely_gender probability_female probability_male
+#&gt; 1    harry      harry          male        0.004759343        0.9952407
+#&gt; 2      ron        ron          male        0.001931194        0.9980688
+#&gt; 3 hermione   hermione        female        1.000000000        0.0000000
+#&gt; 4     DEAN       dean          male        0.015914871        0.9840851
+#&gt; 5  NEVILLE    neville          male        0.031820110        0.9681799
+#&gt; 6      Cho        cho          &lt;NA&gt;                 NA               NA</div><div class='input'><span class='fu'>predict_gender</span><span class='op'>(</span><span class='st'>"franklin"</span>, probability <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;       name match_name likely_gender
+#&gt; 1 franklin   franklin          male</div><div class='input'><span class='fu'>predict_gender</span><span class='op'>(</span><span class='st'>"jacob"</span>, probability <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;    name match_name likely_gender
+#&gt; 1 jacob      jacob          male</div><div class='input'><span class='fu'>predict_gender</span><span class='op'>(</span><span class='st'>"jacob"</span>, probability <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;    name match_name likely_gender probability_female probability_male
+#&gt; 1 jacob      jacob          male        0.002394497        0.9976055</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
