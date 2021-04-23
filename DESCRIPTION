@@ -23,9 +23,7 @@ Suggests:
     spelling
 VignetteBuilder: knitr
 Imports: 
-    dplyr,
-    tidyr,
-    here
+    dplyr
 RoxygenNote: 7.1.1
 Language: en-US
 Config/testthat/edition: 3
