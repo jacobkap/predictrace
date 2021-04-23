@@ -1,5 +1,5 @@
 Package: predictrace
-Title: Predict the Race of a Given Surname Using Census Data
+Title: Predict the Race and Gender of a Given Name Using Census and Social Security Administration Data
 Version: 2.0.0
 Authors@R: 
     person(given = "Jacob",
@@ -7,7 +7,8 @@ Authors@R:
            role = c("aut", "cre"),
            email = "jkkaplan6@gmail.com",
            comment = c(ORCID = "0000-0002-0601-0387"))
-Description: Predicts the most common race of a surname based on U.S. Census data.
+Description: Predicts the most common race of a surname and based on U.S. Census
+    data, and the most common first named based on U.S. Social Security Administration data.
 Depends:
     R (>= 2.10)
 URL: https://github.com/jacobkap/predictrace
