@@ -1,3 +1,7 @@
+# predictrace 2.0.1
+
+* Adds startup message.
+
 # predictrace 2.0.0
 
 * Adds parameter in `predict_race()` where you can enter a first name and get the 

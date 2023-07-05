@@ -1,6 +1,6 @@
 Package: predictrace
 Title: Predict the Race and Gender of a Given Name Using Census and Social Security Administration Data
-Version: 2.0.0
+Version: 2.0.1
 Authors@R: 
     person(given = "Jacob",
            family = "Kaplan",
