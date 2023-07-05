@@ -152,7 +152,7 @@ predict_gender <- function(name, probability = TRUE) {
 }
 
 .onAttach <- function(libname, pkgname) {
-  package_citation <- "Kaplan, J (2023). predictrace: Predict the Race and Gender of a Given Name Using Census and Social Security Administration Data. Version 1.7.1. URL: https://github.com/jacobkap/predictrace, https://jacobkap.github.io/predictrace/."
+  package_citation <- "Kaplan, J (2023). predictrace: Predict the Race and Gender of a Given Name Using Census and Social Security Administration Data. Version 2.0.1. URL: https://github.com/jacobkap/predictrace, https://jacobkap.github.io/predictrace/."
   packageStartupMessage("Thank you for using predictrace!")
   packageStartupMessage("To acknowledge our work, please cite the package:")
   packageStartupMessage(package_citation)

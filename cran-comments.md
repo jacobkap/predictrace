@@ -1,9 +1,12 @@
 ## Test environments
 
-* local Windows install, R 4.0.3
-* Ubuntu 14.04.6 (on travis-ci), R 4.0.2
+* local Windows install, R 4.3.1
 * AppVeyor, R 4.0.5
 * win-builder (devel and release)
+* Rhub 
+    + Windows Server 2022, R-devel, 64 bit
+    + Ubuntu Linux 20.04.1 LTS, R-release, GCC
+    + Fedora Linux, R-devel, clang, gfortran
 
 ## R CMD check results
 
@@ -11,4 +14,4 @@ There were no ERRORs or WARNINGs or NOTES.
 
 ## Reverse dependencies
 
-There are no reverse dependencies
+There are no reverse dependencies.
