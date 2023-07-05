@@ -1,8 +1,8 @@
 ## Test environments
 
 * local Windows install, R 4.3.1
-* AppVeyor, R 4.0.5
-* win-builder (devel and release)
+* AppVeyor, R 4.3.1
+* win-builder (devel)
 * Rhub 
     + Windows Server 2022, R-devel, 64 bit
     + Ubuntu Linux 20.04.1 LTS, R-release, GCC
