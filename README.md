@@ -1,11 +1,11 @@
 
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/predictrace)](https://cran.r-project.org/package=predictrace)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/predictrace)](https://cran.r-project.org/package=predictrace)
 [![AppVeyor Build
 Status](https://ci.appveyor.com/api/projects/status/github/jacobkap/predictrace?branch=master&svg=true)](https://ci.appveyor.com/project/jacobkap/predictrace)
 [![Build
-Status](https://travis-ci.org/jacobkap/predictrace.svg?branch=master)](https://travis-ci.org/jacobkap/predictrace)
+Status](https://travis-ci.org/jacobkap/predictrace.svg?branch=master)](https://app.travis-ci.com/jacobkap/predictrace)
 [![Coverage
-status](https://codecov.io/gh/jacobkap/predictrace/branch/master/graph/badge.svg)](https://codecov.io/github/jacobkap/predictrace?branch=master)
+status](https://codecov.io/gh/jacobkap/predictrace/branch/master/graph/badge.svg)](https://app.codecov.io/github/jacobkap/predictrace?branch=master)
 [![](http://cranlogs.r-pkg.org/badges/grand-total/predictrace?color=blue)](https://cran.r-project.org/package=predictrace)
 
 ## Overview
@@ -47,6 +47,12 @@ devtools::install_github("jacobkap/predictrace")
 ``` r
 library(predictrace)
 ```
+
+    ## Thank you for using predictrace!
+
+    ## To acknowledge our work, please cite the package:
+
+    ## Kaplan, J (2023). predictrace: Predict the Race and Gender of a Given Name Using Census and Social Security Administration Data. Version 1.7.1. URL: https://github.com/jacobkap/predictrace, https://jacobkap.github.io/predictrace/.
 
 ### Race of a surname
 
